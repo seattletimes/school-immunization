@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <%= t.include("partials/_adHead.html") %>
+  </head>
+  <body>
+
+    <script src="app.js"></script>
+    <%= json.project.production ? t.include("partials/_adFoot.html") : "" %>
+    <%= json.project.production ? t.include("partials/_workHere.html") : "" %>
+  </body>
+</html>
