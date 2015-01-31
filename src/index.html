@@ -7,10 +7,23 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <%= t.include("partials/_adHead.html") %>
   </head>
+  
   <body ng-app="school-immunization">
-
     <div ng-controller="SchoolController">
-      {{allSchools}}
+      <table>
+        <th>Name</th>
+        <th>City</th>
+        <th>Zip</th>
+        <th>K-12 Exempt</th>
+        <th>K-12 Exempt (%)</th>
+        <tr ng-repeat="row in allSchools">
+          <td>{{row["School name"]}}</td>
+          <td>{{row["School City"]}}</td>
+          <td>{{row["School Zip"]}}</td>
+          <td>{{row["K-12 Exempt"]}}</td>
+          <td>{{row["% K-12 Exempt"]}}</td>
+        </tr>
+      </table>
     </div>
 
     <script>var schoolData = <%= JSON.stringify( csv.school_data ) %>;</script>
