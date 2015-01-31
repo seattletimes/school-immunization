@@ -7,8 +7,13 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <%= t.include("partials/_adHead.html") %>
   </head>
-  <body>
+  <body ng-app="school-immunization">
 
+    <div ng-controller="SchoolController">
+      {{allSchools}}
+    </div>
+
+    <script>var schoolData = <%= JSON.stringify( csv.school_data ) %>;</script>
     <script src="app.js"></script>
     <%= json.project.production ? t.include("partials/_adFoot.html") : "" %>
     <%= json.project.production ? t.include("partials/_workHere.html") : "" %>
