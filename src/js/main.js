@@ -10,10 +10,11 @@ app.controller("SchoolController", ["$scope", function($scope) {
   $scope.searchField = "name";
 
   $scope.search = util.debounce(function() {
-    var value = $scope.searchText.toLowerCase();
+    var value = $scope.searchText;
     if (!value) {
       $scope.found = [];
     } else {
+      value = value.toLowerCase();
       $scope.found = all.filter(function(item) {
         return item[$scope.searchField].toLowerCase().indexOf(value) > -1;
       });
