@@ -19,6 +19,10 @@
           <option value="zip">Zip Code</option>
         </select>
         <input type="text" ng-change="search()" ng-model="searchText">
+
+        <div class="key-box">
+          <div class="public key"></div> = Public <div class="private key"></div> = Private
+        </div>
       </div>
 
       <table class="school-table">
@@ -46,6 +50,8 @@
             <td class="right">{{row.medical}}
             <td class="right">{{row.religious}}
       </table>
+
+      <div class="credit">Interactive by Audrey Carlsen / The Seattle Times</div>
     </div>
 
     <script>var schoolData = <%= JSON.stringify( csv.school_data ) %>;</script>
