@@ -1,4 +1,4 @@
-School Code,School name,School Type,School Street,School City,School State,School Zip,School County,School District Name,Grades,K-12 Enrolled,K-12 Exempt,% K-12 Exempt,K-12 Medical Exemption,K-12 Personal Exemption,K-12 Religious Exemption
+code,name,type,strees,city,state,zip,county,district,grades,enrolled,total,percent,medical,personal,religious
 8628,Seattle Waldorf School,Private School,2728 NE 100th St,Seattle,WA,98125,KING,Seattle Public Schools,K-12,327,130,39.8%,1,128,1
 1688,Family Learning Center,Public School,10903 NE 53rd Street,Kirkland,WA,98033,KING,Lake Washington School District,K-12,218,84,38.5%,1,77,6
 8665,Cedar Park Christian School--Bellevue Campus,Private School,625 140th Ave NE,Bellevue,WA,98005,KING,Bellevue School District,K-6,57,21,36.8%,0,21,0

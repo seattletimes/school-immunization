@@ -11,9 +11,13 @@
 
   <body ng-app="school-immunization">
     <div ng-controller="SchoolController">
-      School Name: <input type="text" ng-model="search['School name']">
-      City: <input type="text" ng-model="search['School City']">
-      Zipcode: <input type="text" ng-model="search['School Zip']">
+      Search by:
+      <select name="select" ng-change="search()" ng-model="searchField">
+        <option value="name" selected>School Name</option> 
+        <option value="city">City</option>
+        <option value="zip">Zip Code</option>
+      </select>
+      Search: <input type="text" ng-change="search()" ng-model="searchText">
 
       <table class="school-table">
         <thead>
@@ -28,15 +32,17 @@
             <th class="right religious">Religious
 
         <tbody>
-          <tr ng-repeat="row in allSchools | filter:search">
-            <td class="left">{{row["School name"]}}
-            <td class="left">{{row["School City"]}}
-            <td class="left">{{row["School Zip"]}}
-            <td class="right">{{row["% K-12 Exempt"]}}
-            <td class="right">{{row["K-12 Exempt"]}}
-            <td class="right">{{row["K-12 Personal Exemption"]}}
-            <td class="right">{{row["K-12 Medical Exemption"]}}
-            <td class="right">{{row["K-12 Religious Exemption"]}}
+          <tr ng-show="found.length == 0">
+            <td colspan=100>No results found
+          <tr ng-repeat="row in found">
+            <td class="left">{{row.name}}
+            <td class="left">{{row.city}}
+            <td class="left">{{row.zip}}
+            <td class="right">{{row.percent}}
+            <td class="right">{{row.total}}
+            <td class="right">{{row.personal}}
+            <td class="right">{{row.medical}}
+            <td class="right">{{row.religious}}
       </table>
     </div>
 
