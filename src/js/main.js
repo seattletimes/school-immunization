@@ -1,6 +1,7 @@
 //Use CommonJS style via browserify to load other modules
 
 var app = require("./application");
+var util = require("./util");
 
 app.controller("SchoolController", ["$scope", function($scope) {
 
@@ -8,16 +9,17 @@ app.controller("SchoolController", ["$scope", function($scope) {
 
   $scope.searchField = "name";
 
-  $scope.search = function() {
-    value = $scope.searchText.toLowerCase();
-    console.log(value)
+  $scope.search = util.debounce(function() {
+    var value = $scope.searchText.toLowerCase();
     if (!value) {
-      return $scope.found = [];
+      $scope.found = [];
+    } else {
+      $scope.found = all.filter(function(item) {
+        return item[$scope.searchField].toLowerCase().indexOf(value) > -1;
+      });
     }
-    $scope.found = all.filter(function(item) {
-      return item[$scope.searchField].toLowerCase().indexOf(value) > -1;
-    });
-  };
+    $scope.$apply();
+  });
 
   $scope.found = [];
 
