@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <%= t.include("partials/_adHead.html") %>
   </head>
 
@@ -14,19 +15,28 @@
       City: <input type="text" ng-model="search['School City']">
       Zipcode: <input type="text" ng-model="search['School Zip']">
 
-      <table>
-        <th>Name</th>
-        <th>City</th>
-        <th>Zip</th>
-        <th>K-12 Exempt</th>
-        <th>K-12 Exempt (%)</th>
-        <tr ng-repeat="row in allSchools | filter:search">
-          <td>{{row["School name"]}}</td>
-          <td>{{row["School City"]}}</td>
-          <td>{{row["School Zip"]}}</td>
-          <td>{{row["K-12 Exempt"]}}</td>
-          <td>{{row["% K-12 Exempt"]}}</td>
-        </tr>
+      <table class="school-table">
+        <thead>
+          <tr>
+            <th class="left">School Name
+            <th class="left">City
+            <th class="left">Zipcode
+            <th class="right">Exempt (%)
+            <th class="right">Total
+            <th class="right">Medical
+            <th class="right">Personal
+            <th class="right">Religious
+
+        <tbody>
+          <tr ng-repeat="row in allSchools | filter:search">
+            <td class="left">{{row["School name"]}}
+            <td class="left">{{row["School City"]}}
+            <td class="left">{{row["School Zip"]}}
+            <td class="right">{{row["% K-12 Exempt"]}}
+            <td class="right">{{row["K-12 Exempt"]}}
+            <td class="right">{{row["K-12 Medical Exemption"]}}
+            <td class="right">{{row["K-12 Personal Exemption"]}}
+            <td class="right">{{row["K-12 Religious Exemption"]}}
       </table>
     </div>
 
