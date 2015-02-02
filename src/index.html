@@ -7,16 +7,20 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <%= t.include("partials/_adHead.html") %>
   </head>
-  
+
   <body ng-app="school-immunization">
     <div ng-controller="SchoolController">
+      School Name: <input type="text" ng-model="search['School name']">
+      City: <input type="text" ng-model="search['School City']">
+      Zipcode: <input type="text" ng-model="search['School Zip']">
+
       <table>
         <th>Name</th>
         <th>City</th>
         <th>Zip</th>
         <th>K-12 Exempt</th>
         <th>K-12 Exempt (%)</th>
-        <tr ng-repeat="row in allSchools">
+        <tr ng-repeat="row in allSchools | filter:search">
           <td>{{row["School name"]}}</td>
           <td>{{row["School City"]}}</td>
           <td>{{row["School Zip"]}}</td>
