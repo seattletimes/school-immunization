@@ -11,13 +11,15 @@
 
   <body ng-app="school-immunization">
     <div ng-controller="SchoolController">
-      Search by:
-      <select name="select" ng-change="search()" ng-model="searchField">
-        <option value="name" selected>School Name</option> 
-        <option value="city">City</option>
-        <option value="zip">Zip Code</option>
-      </select>
-      Search: <input type="text" ng-change="search()" ng-model="searchText">
+      <div class="search">
+        Search by:<br>
+        <select name="select" ng-change="search()" ng-model="searchField">
+          <option value="name" selected>School Name</option> 
+          <option value="city">City</option>
+          <option value="zip">Zip Code</option>
+        </select>
+        <input type="text" ng-change="search()" ng-model="searchText">
+      </div>
 
       <table class="school-table">
         <thead>
@@ -33,7 +35,7 @@
 
         <tbody>
           <tr ng-show="found.length == 0">
-            <td colspan=100>No results found
+            <td colspan=100><em>No results found</em>
           <tr ng-repeat="row in found">
             <td class="left">{{row.name}}
             <td class="left">{{row.city}}
