@@ -18,14 +18,14 @@
       <table class="school-table">
         <thead>
           <tr>
-            <th class="left">School Name
-            <th class="left">City
-            <th class="left">Zipcode
-            <th class="right">Exempt (%)
-            <th class="right">Total
-            <th class="right">Medical
-            <th class="right">Personal
-            <th class="right">Religious
+            <th class="left name">School Name
+            <th class="left city">City
+            <th class="left zip">Zip
+            <th class="right percent">Exempt (%)
+            <th class="right total">Total
+            <th class="right personal">Personal
+            <th class="right medical">Medical
+            <th class="right religious">Religious
 
         <tbody>
           <tr ng-repeat="row in allSchools | filter:search">
@@ -34,8 +34,8 @@
             <td class="left">{{row["School Zip"]}}
             <td class="right">{{row["% K-12 Exempt"]}}
             <td class="right">{{row["K-12 Exempt"]}}
-            <td class="right">{{row["K-12 Medical Exemption"]}}
             <td class="right">{{row["K-12 Personal Exemption"]}}
+            <td class="right">{{row["K-12 Medical Exemption"]}}
             <td class="right">{{row["K-12 Religious Exemption"]}}
       </table>
     </div>
