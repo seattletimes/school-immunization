@@ -10,28 +10,6 @@ body {
   font-size: 14px;
 }
 
-@media (max-width: 600px) {
-  .zip {
-    display: none;
-  }
-
-  .school-table.full-width {
-    width: 100% !important;
-  }
-}
-
-@media (max-width: 525px) {
-  .medical, .religious {
-    display: none;
-  }
-}
-
-@media (max-width: 400px) {
-  .personal {
-    display: none;
-  }
-}
-
 .container {
   max-width: 584px;
 }
@@ -83,9 +61,10 @@ body {
 
 .school-table {
   border-collapse: collapse;
+  width: 584px;
 
-  &.full-width {
-    width: 584px;
+  @media (max-width: 600px) {
+    width: 100%;
   }
 
   .city {
@@ -93,6 +72,7 @@ body {
   }
   .zip {
     width: 49px;
+    @media (max-width: 600px) { display: none; }
   }
   .percent {
     width: 80px;
@@ -102,12 +82,15 @@ body {
   }
   .personal {
     width: 60px;
+    @media (max-width: 400px) { display: none; }
   }
   .medical {
     width: 54px;
+    @media (max-width: 525px) { display: none; }
   }
   .religious {
     width: 56px;
+    @media (max-width: 525px) { display: none; }
   }
   
   .left {
