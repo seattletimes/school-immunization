@@ -15,9 +15,10 @@ app.controller("SchoolController", ["$scope", function($scope) {
       $scope.found = [];
     } else {
       value = value.toLowerCase();
-      $scope.found = all.filter(function(item) {
+      var filtered = all.filter(function(item) {
         return item[$scope.searchField].toLowerCase().indexOf(value) > -1;
       });
+      $scope.found = filtered.slice(0,50);
     }
     $scope.$apply();
   });
