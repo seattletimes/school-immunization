@@ -10,10 +10,28 @@ body {
   font-size: 14px;
 }
 
+@media (max-width: 600px) {
+  .zip {
+    display: none;
+  }
+}
+
+@media (max-width: 525px) {
+  .medical, .religious {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .personal {
+    display: none;
+  }
+}
+
 .search {
   padding-bottom: 10px;
   padding-left: 5px;
-  width: 600px;
+  max-width: 600px;
 }
 
 .row {
@@ -47,8 +65,12 @@ body {
 }
 
 .school-table {
-  width: 600px;
+  max-width: 600px;
   border-collapse: collapse;
+
+  &.full-width {
+    width: 600px;
+  }
 
   .city {
     width: 84px;
@@ -98,5 +120,5 @@ body {
   color: #666;
   font-size: 11px;
   text-align: right;
-  width: 600px;
+  max-width: 600px;
 }

@@ -26,7 +26,7 @@
         </div>
       </div>
 
-      <table class="school-table">
+      <table class="school-table" ng-class="{'full-width': found.length == 0}">
         <thead>
           <tr>
             <th class="left name">School Name
@@ -42,14 +42,14 @@
           <tr ng-show="found.length == 0">
             <td colspan=100><em>No results found</em>
           <tr ng-repeat="row in found" class="row" ng-class="{'public': row.type == 'Public School', 'private': row.type == 'Private School'}">
-            <td class="left">{{row.name}} <span class="violation" ng-hover="" ng-show="row.percent == '-'"><i class="fa fa-exclamation-circle"></i></span>
-            <td class="left">{{row.city}}
-            <td class="left">{{row.zip}}
-            <td class="right">{{row.percent}}
-            <td class="right">{{row.total}}
-            <td class="right">{{row.personal}}
-            <td class="right">{{row.medical}}
-            <td class="right">{{row.religious}}
+            <td class="left name">{{row.name}} <span class="violation" ng-hover="" ng-show="row.percent == '-'"><i class="fa fa-exclamation-circle"></i></span>
+            <td class="left city">{{row.city}}
+            <td class="left zip">{{row.zip}}
+            <td class="right percent">{{row.percent}}
+            <td class="right total">{{row.total}}
+            <td class="right personal">{{row.personal}}
+            <td class="right medical">{{row.medical}}
+            <td class="right religious">{{row.religious}}
       </table>
 
       <div class="credit">Interactive by Audrey Carlsen / The Seattle Times</div>
