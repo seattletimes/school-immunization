@@ -92,7 +92,7 @@ body {
     width: 56px;
     @media (max-width: 525px) { display: none; }
   }
-  
+
   .left {
     text-align: left;
   }
@@ -111,6 +111,28 @@ body {
 
 .violation {
   padding-left: 3px;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    .tooltip {
+      display: block;
+    }
+  }
+
+  .tooltip {
+    display: none;
+    position: absolute;
+    top: 2px;
+    left: 21px;
+    background: #EEE;
+    padding: 3px 5px;
+    font-size: 12px;
+    border: 1px solid #666;
+    border-radius: 3px;
+    z-index: 999;
+    width: 218px;
+  }
 }
 
 .credit { 

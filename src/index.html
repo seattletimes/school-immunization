@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <%= t.include("partials/_adHead.html") %>
   </head>
@@ -44,7 +44,12 @@
           <tr ng-show="found.length == 50">
             <td colspan=100><em>First 50 results shown:</em>
           <tr ng-repeat="row in found" class="row" ng-class="{'public': row.type == 'Public School', 'private': row.type == 'Private School'}">
-            <td class="left name">{{row.name}} <span class="violation" ng-hover="" ng-show="row.percent == '-'"><i class="fa fa-exclamation-circle"></i></span>
+            <td class="left name">
+              {{row.name}} 
+              <span class="violation" ng-hover="" ng-show="row.percent == '-'">
+                <i class="fa fa-exclamation-circle"></i>
+                <div class="tooltip">State law requires all public and private schools report the immunization status of their students.</div>
+              </span>
             <td class="left city">{{row.city}}
             <td class="left zip">{{row.zip}}
             <td class="right percent">{{row.percent}}
