@@ -135,9 +135,36 @@ body {
   }
 }
 
-.credit { 
+.credit, .download { 
   padding-top: 6px;
   color: #666;
+
+}
+
+.download {
+  padding-left: 5px;
+  font-size: 12px;
+
+  a {
+    text-decoration: none;
+    color: #524fa2;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (max-width: 350px) {
+    display: none;
+  }
+}
+
+.credit { 
   font-size: 11px;
-  text-align: right;
+  float: right;
+  margin-top: -21px;
+
+  @media (max-width: 350px) {
+    margin-top: 0;
+  }
 }
