@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <%= t.include("partials/_adHead.html") %>
   </head>
 
@@ -21,7 +22,7 @@
         <input type="text" ng-change="search()" ng-model="searchText">
 
         <div class="key-box">
-          <div class="public key"></div> = Public <div class="private key"></div> = Private
+          <div class="public key"></div> = Public <div class="private key"></div> = Private <span class="violation-key"><i class="fa fa-exclamation-circle"></i></span> = Violation
         </div>
       </div>
 
@@ -41,7 +42,7 @@
           <tr ng-show="found.length == 0">
             <td colspan=100><em>No results found</em>
           <tr ng-repeat="row in found" class="row" ng-class="{'public': row.type == 'Public School', 'private': row.type == 'Private School'}">
-            <td class="left">{{row.name}}
+            <td class="left">{{row.name}} <span class="violation" ng-hover="" ng-show="row.percent == '-'"><i class="fa fa-exclamation-circle"></i></span>
             <td class="left">{{row.city}}
             <td class="left">{{row.zip}}
             <td class="right">{{row.percent}}
