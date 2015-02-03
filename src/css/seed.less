@@ -14,6 +14,10 @@ body {
   .zip {
     display: none;
   }
+
+  .school-table.full-width {
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 525px) {
@@ -28,10 +32,12 @@ body {
   }
 }
 
+.container {
+  max-width: 584px;
+}
+
 .search {
   padding-bottom: 10px;
-  padding-left: 5px;
-  max-width: 600px;
 }
 
 .row {
@@ -52,24 +58,32 @@ body {
 
 .key-box {
   font-size: 13px;
-  position: absolute;
-  top: 30px;
-  left: 375px;
+  float: right;
+  margin-top: -27px;
+
+  @media (max-width: 525px) {
+    float: none;
+    margin-top: 0;
+    padding-bottom: 3px;
+    padding-left: 5px;
+  }
 
   .key {
     width: 11px;
     height: 11px;
     display: inline-block;
-    margin-left: 8px;
+    
+    &.padded {
+      margin-left: 8px
+    }
   }
 }
 
 .school-table {
-  max-width: 600px;
   border-collapse: collapse;
 
   &.full-width {
-    width: 600px;
+    width: 584px;
   }
 
   .city {
@@ -120,5 +134,4 @@ body {
   color: #666;
   font-size: 11px;
   text-align: right;
-  max-width: 600px;
 }

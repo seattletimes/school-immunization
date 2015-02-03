@@ -11,7 +11,7 @@
   </head>
 
   <body ng-app="school-immunization">
-    <div ng-controller="SchoolController">
+    <div ng-controller="SchoolController" class="container">
       <div class="search">
         Search by:<br>
         <select name="select" ng-change="search()" ng-model="searchField">
@@ -20,10 +20,10 @@
           <option value="zip">Zip Code</option>
         </select>
         <input type="text" ng-change="search()" ng-model="searchText">
+      </div>
 
-        <div class="key-box">
-          <div class="public key"></div> = Public <div class="private key"></div> = Private <span class="violation-key"><i class="fa fa-exclamation-circle"></i></span> = Violation
-        </div>
+      <div class="key-box">
+        <div class="public key"></div> = Public <div class="private key padded"></div> = Private <span class="violation-key"><i class="fa fa-exclamation-circle"></i></span> = Violation
       </div>
 
       <table class="school-table" ng-class="{'full-width': found.length == 0}">
