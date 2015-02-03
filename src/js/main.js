@@ -2,6 +2,7 @@
 
 var app = require("./application");
 var util = require("./util");
+require("component-responsive-frame/child");
 
 app.controller("SchoolController", ["$scope", function($scope) {
 

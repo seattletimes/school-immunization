@@ -7,65 +7,64 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <%= t.include("partials/_adHead.html") %>
   </head>
 
   <body ng-app="school-immunization">
-    <div ng-controller="SchoolController" class="container">
-      <div class="search">
-        Search by:<br>
-        <select name="select" ng-change="search()" ng-model="searchField">
-          <option value="name" selected>School Name</option> 
-          <option value="city">City</option>
-          <option value="zip">Zip Code</option>
-        </select>
-        <input type="text" ng-change="search()" ng-model="searchText">
+    <responsive-child interval="500">
+      <div ng-controller="SchoolController" class="container">
+        <div class="search">
+          Search by:<br>
+          <select name="select" ng-change="search()" ng-model="searchField">
+            <option value="name" selected>School Name</option> 
+            <option value="city">City</option>
+            <option value="zip">Zip Code</option>
+          </select>
+          <input type="text" ng-change="search()" ng-model="searchText">
+        </div>
+
+        <div class="key-box">
+          <div class="public key"></div> = Public <div class="private key padded"></div> = Private <span class="violation-key"><i class="fa fa-exclamation-circle"></i></span> = Violation
+        </div>
+
+        <table class="school-table">
+          <thead>
+            <tr>
+              <th class="left name">School Name
+              <th class="left city">City
+              <th class="left zip">Zip
+              <th class="right percent">Exempt (%)
+              <th class="right total">Total
+              <th class="right personal">Personal
+              <th class="right medical">Medical
+              <th class="right religious">Religious
+
+          <tbody>
+            <tr ng-show="found.length == 0">
+              <td colspan=100><em>No results found</em>
+            <tr ng-show="found.length == 50">
+              <td colspan=100><em>First 50 results shown:</em>
+            <tr ng-repeat="row in found" class="row" ng-class="{'public': row.type == 'Public School', 'private': row.type == 'Private School'}">
+              <td class="left name">
+                {{row.name}} 
+                <span class="violation" ng-hover="" ng-show="row.percent == '-'">
+                  <i class="fa fa-exclamation-circle"></i>
+                  <div class="tooltip">State law requires all public and private schools to report the immunization status of their students.</div>
+                </span>
+              <td class="left city">{{row.city}}
+              <td class="left zip">{{row.zip}}
+              <td class="right percent">{{row.percent}}
+              <td class="right total">{{row.total}}
+              <td class="right personal">{{row.personal}}
+              <td class="right medical">{{row.medical}}
+              <td class="right religious">{{row.religious}}
+        </table>
+
+        <div class="download">Download: <a href="#">CSV</a></div>
+        <div class="credit">Interactive by Audrey Carlsen / The Seattle Times</div>
       </div>
-
-      <div class="key-box">
-        <div class="public key"></div> = Public <div class="private key padded"></div> = Private <span class="violation-key"><i class="fa fa-exclamation-circle"></i></span> = Violation
-      </div>
-
-      <table class="school-table">
-        <thead>
-          <tr>
-            <th class="left name">School Name
-            <th class="left city">City
-            <th class="left zip">Zip
-            <th class="right percent">Exempt (%)
-            <th class="right total">Total
-            <th class="right personal">Personal
-            <th class="right medical">Medical
-            <th class="right religious">Religious
-
-        <tbody>
-          <tr ng-show="found.length == 0">
-            <td colspan=100><em>No results found</em>
-          <tr ng-show="found.length == 50">
-            <td colspan=100><em>First 50 results shown:</em>
-          <tr ng-repeat="row in found" class="row" ng-class="{'public': row.type == 'Public School', 'private': row.type == 'Private School'}">
-            <td class="left name">
-              {{row.name}} 
-              <span class="violation" ng-hover="" ng-show="row.percent == '-'">
-                <i class="fa fa-exclamation-circle"></i>
-                <div class="tooltip">State law requires all public and private schools to report the immunization status of their students.</div>
-              </span>
-            <td class="left city">{{row.city}}
-            <td class="left zip">{{row.zip}}
-            <td class="right percent">{{row.percent}}
-            <td class="right total">{{row.total}}
-            <td class="right personal">{{row.personal}}
-            <td class="right medical">{{row.medical}}
-            <td class="right religious">{{row.religious}}
-      </table>
-
-      <div class="download">Download: <a href="#">CSV</a></div>
-      <div class="credit">Interactive by Audrey Carlsen / The Seattle Times</div>
-    </div>
+    </responsive-child>
 
     <script>var schoolData = <%= JSON.stringify( csv.school_data ) %>;</script>
     <script src="app.js"></script>
-    <%= json.project.production ? t.include("partials/_adFoot.html") : "" %>
-    <%= json.project.production ? t.include("partials/_workHere.html") : "" %>
   </body>
 </html>
