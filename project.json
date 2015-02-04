@@ -5,14 +5,14 @@
       "path": "young-forest"
     },
     "live": {
-      "bucket": "",
-      "path": ""
+      "bucket": "projects.seattletimes.com",
+      "path": "2015/fyiguy/school-vaccines"
     }
   },
-  "title": "",
+  "title": "Vaccine exemption rates for every Washington school",
   "description": "",
   "url": "",
   "slug": "",
   "tags": [],
-  "production": false
+  "production": true
 }
