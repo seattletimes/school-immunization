@@ -11,7 +11,7 @@
 
   <body ng-app="school-immunization">
     <responsive-child interval="500">
-      <div ng-controller="SchoolController" class="container">
+      <div ng-controller="SchoolController" class="container" ng-cloak>
         <div class="search">
           Search by:<br>
           <select name="select" ng-change="search()" ng-model="searchField">
@@ -42,7 +42,7 @@
             <tr ng-show="found.length == 0">
               <td colspan=100><em>No results found</em>
             <tr ng-show="found.length == 50">
-              <td colspan=100><em>First 50 results shown:</em>
+              <td colspan=100><em>First 50 results shown</em>
             <tr ng-repeat="row in found" class="row" ng-class="{'public': row.type == 'Public School', 'private': row.type == 'Private School'}">
               <td class="left name">
                 {{row.name}} 
