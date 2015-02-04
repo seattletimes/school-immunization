@@ -5,7 +5,6 @@ var util = require("./util");
 require("component-responsive-frame/child");
 
 app.controller("SchoolController", ["$scope", function($scope) {
-
   var all = window.schoolData;
 
   $scope.searchField = "name";
@@ -25,6 +24,4 @@ app.controller("SchoolController", ["$scope", function($scope) {
   });
 
   $scope.found = [];
-
-  $scope.allSchools = window.schoolData;
 }]);
